@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daichi Nonaka | Portfolio</title>
+  <meta name="description" content="Daichi Nonaka の自己紹介・プロジェクト・連絡先" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --fg: #e9eef3;
+      --muted: #aab6c4;
+      --card: #111826;
+      --accent: #6ae3ff;
+      --accent-2: #8fff8a;
+      --border: #1f2a3a;
+      --link: #7cc7ff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: 'Inter', 'Noto Sans JP', system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92%); margin: 0 auto; }
+    header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(120%) blur(8px); background: color-mix(in oklab, var(--bg) 85%, #000 15%); border-bottom: 1px solid var(--border); }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { font-weight: 800; letter-spacing: 0.2px; }
+    .nav a { margin-left: 18px; font-weight: 600; color: var(--fg); opacity: 0.9; }
+    .nav a:hover { opacity: 1; }
+    .hero { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; padding: 60px 0 20px; align-items: center; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; background: #0f172a; border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; color: var(--muted); font-size: 13px; }
+    .h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.1; margin: 14px 0; font-weight: 800; }
+    .lead { color: var(--muted); font-size: 16px; }
+    .cta { display: inline-flex; gap: 10px; margin-top: 22px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; background: var(--fg); color: #0b0f14; border: none; padding: 12px 16px; border-radius: 12px; font-weight: 700; cursor: pointer; }
+    .btn.secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 16px; }
+    .card h3 { margin: 8px 0; font-size: 18px; }
+    .section { padding: 44px 0; border-top: 1px solid var(--border); }
+    .section h2 { font-size: 22px; margin: 0 0 6px; }
+    .sub { color: var(--muted); margin: 0 0 14px; }
+    .list { display: grid; gap: 10px; }
+    .list li { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px; }
+    .pill { display: inline-block; font-size: 12px; padding: 4px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+    footer { padding: 30px 0 50px; color: var(--muted); text-align: center; border-top: 1px solid var(--border); }
+    img.heroimg { width: 100%; border-radius: 16px; border: 1px solid var(--border); }
+    @media (max-width: 860px) { .hero { grid-template-columns: 1fr; padding-top: 32px; } }
+    /* language toggle */
+    .lang-toggle { display:flex; align-items:center; gap:6px; border:1px solid var(--border); padding:4px; border-radius:999px; }
+    .lang-toggle button { background:transparent; border:none; color:var(--muted); padding:6px 10px; border-radius:999px; cursor:pointer; font-weight:700; }
+    .lang-toggle button.active { background: var(--card); color: var(--fg); }
+    .divider { height:1px; background: var(--border); margin: 24px 0; }
+    .contact-card { display:grid; gap:10px; }
+    .socials { display:flex; gap:10px; flex-wrap:wrap; }
+    .socials a { border:1px solid var(--border); padding:8px 10px; border-radius:10px; color:var(--fg); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Daichi</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#workshops">Workshops</a>
+        <a href="#contact">Contact</a>
+        <span class="lang-toggle" aria-label="language toggle">
+          <button id="btn-ja" class="active">JP</button>
+          <button id="btn-en">EN</button>
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="badge">高校生 / Business & Culture / Indonesia × Japan</span>
+        <h1 class="h1" data-ja="こんにちは、野中 大暉（Daichi）です。" data-en="Hi, I'm Daichi Nonaka.">こんにちは、野中 大暉（Daichi）です。</h1>
+        <p class="lead" data-ja="インドネシアで学びながら、日本の緑茶・観葉植物・カルチャーをつなぐプロジェクトに挑戦中。起業・勉強・スポーツ、全部本気でやります。"
+           data-en="I'm a Japanese high‑school student in Indonesia, building bridges through green tea, houseplants, and culture — while studying hard and staying active.">インドネシアで学びながら、日本の緑茶・観葉植物・カルチャーをつなぐプロジェクトに挑戦中。起業・勉強・スポーツ、全部本気でやります。</p>
+        <div class="cta">
+          <a class="btn" href="#projects">プロジェクトを見る</a>
+          <a class="btn secondary" href="#contact">連絡する</a>
+        </div>
+      </div>
+      <div>
+        <img class="heroimg" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Hero image placeholder" />
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <h2>About</h2>
+      <p class="sub" data-ja="自己紹介と学歴、今やっていること。" data-en="Short bio, education, and what I'm doing now.">自己紹介と学歴、今やっていること。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>プロフィール</h3>
+          <p data-ja="静岡県掛川市出身。現在はインドネシア・チカランの Sekolah Dian Harapan と日本の N高に在籍。日英インドネシア語で学習・活動中。"
+             data-en="From Kakegawa, Shizuoka. Currently studying at Sekolah Dian Harapan (Cikarang) and N High School (Japan). Work in JP/EN/ID.">静岡県掛川市出身。現在はインドネシア・チカランの Sekolah Dian Harapan と日本の N高に在籍。日英インドネシア語で学習・活動中。</p>
+          <div class="tags">
+            <span class="pill">JP/EN/ID</span>
+            <span class="pill">Business</span>
+            <span class="pill">Sports</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>今フォーカスしていること</h3>
+          <ul class="list">
+            <li data-ja="日本茶（煎茶・抹茶）× インドネシアの市場調査とイベント運営"
+                data-en="Japanese green tea market research & events in Indonesia">日本茶（煎茶・抹茶）× インドネシアの市場調査とイベント運営</li>
+            <li data-ja="観葉植物（アロイド）分野の情報収集と物流リサーチ"
+                data-en="Houseplant (aroid) exploration and logistics research">観葉植物（アロイド）分野の情報収集と物流リサーチ</li>
+            <li data-ja="学校の学習・プレゼン制作・語学力アップ"
+                data-en="Schoolwork, presentations, and language learning">学校の学習・プレゼン制作・語学力アップ</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>スキル</h3>
+          <p data-ja="Notion / Canva / Google Workspace / GitHub Pages / 基本のHTML・CSS・JS"
+             data-en="Notion, Canva, Google Workspace, GitHub Pages, basic HTML/CSS/JS">Notion / Canva / Google Workspace / GitHub Pages / 基本のHTML・CSS・JS</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Projects</h2>
+      <p class="sub" data-ja="進行中のプロジェクト。" data-en="Current projects.">進行中のプロジェクト。</p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Green Tea × Indonesia</h3>
+          <p data-ja="静岡の煎茶・抹茶をインドネシアのカフェやイベントで紹介。イスラム文化との相性、健康志向、若者の嗜好を検証中。"
+             data-en="Introducing Shizuoka-style sencha & matcha to Indonesian cafés and events; exploring cultural fit and health trends.">静岡の煎茶・抹茶をインドネシアのカフェやイベントで紹介。イスラム文化との相性、健康志向、若者の嗜好を検証中。</p>
+          <div class="tags"><span class="pill">Tea</span><span class="pill">Culture</span><span class="pill">Field Study</span></div>
+        </article>
+        <article class="card">
+          <h3>Houseplant Logistics</h3>
+          <p data-ja="インドネシアのナーセリーや植物園を訪問し、輸出入や梱包の実務をリサーチ。"
+             data-en="Visiting Indonesian nurseries & gardens to research export/import and packaging.">インドネシアのナーセリーや植物園を訪問し、輸出入や梱包の実務をリサーチ。</p>
+          <div class="tags"><span class="pill">Plants</span><span class="pill">Supply Chain</span></div>
+        </article>
+        <article class="card">
+          <h3>Speaking & Presentations</h3>
+          <p data-ja="学校やワークショップ向けに、日英インドネシア語でプレゼンを作成・登壇。"
+             data-en="Creating and delivering talks in JP/EN/ID for schools & workshops.">学校やワークショップ向けに、日英インドネシア語でプレゼンを作成・登壇。</p>
+          <div class="tags"><span class="pill">Public Speaking</span><span class="pill">Education</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="workshops" class="section">
+      <h2>Workshops</h2>
+      <p class="sub" data-ja="ショッピングモールや学校でのワークショップ計画。" data-en="Workshop plans at malls and schools.">ショッピングモールや学校でのワークショップ計画。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3 data-ja="日本茶テイスティング & お点前体験" data-en="Japanese Tea Tasting & Matcha Demo">日本茶テイスティング & お点前体験</h3>
+          <ul class="list">
+            <li data-ja="対象：高校生〜大人 / 30–60分" data-en="Audience: HS to adults / 30–60 min">対象：高校生〜大人 / 30–60分</li>
+            <li data-ja="内容：品種解説、飲み比べ、豆知識クイズ" data-en="Content: cultivar basics, tasting flight, quiz">内容：品種解説、飲み比べ、豆知識クイズ</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 data-ja="観葉植物の梱包・ケア入門" data-en="Intro to Plant Packing & Care">観葉植物の梱包・ケア入門</h3>
+          <ul class="list">
+            <li data-ja="対象：初心者" data-en="Audience: beginners">対象：初心者</li>
+            <li data-ja="内容：用土・光・湿度・輸送時の保護" data-en="Content: soil, light, humidity, shipping protection">内容：用土・光・湿度・輸送時の保護</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p class="sub" data-ja="コラボ・相談はお気軽に。" data-en="Open to collabs and chats.">コラボ・相談はお気軽に。</p>
+      <div class="card contact-card">
+        <div>
+          <strong>Email:</strong> <a href="mailto:daichi@example.com">daichi@example.com</a>
+        </div>
+        <div class="socials">
+          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Notion">Notion</a>
+        </div>
+        <div class="divider"></div>
+        <small>© <span id="y"></span> Daichi Nonaka</small>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">Made with ♥ and GitHub Pages</div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // bilingual toggle
+    const jaBtn = document.getElementById('btn-ja');
+    const enBtn = document.getElementById('btn-en');
+    function setLang(lang) {
+      const nodes = document.querySelectorAll('[data-ja]');
+      nodes.forEach(n => {
+        n.textContent = n.getAttribute(lang === 'ja' ? 'data-ja' : 'data-en');
+      });
+      jaBtn.classList.toggle('active', lang === 'ja');
+      enBtn.classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+    jaBtn.addEventListener('click', () => setLang('ja'));
+    enBtn.addEventListener('click', () => setLang('en'));
+  </script>
+</body>
+</html>
